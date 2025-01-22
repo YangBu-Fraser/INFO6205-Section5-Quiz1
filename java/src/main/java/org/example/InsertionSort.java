@@ -1,8 +1,12 @@
 package org.example;
 
+import java.util.List;
+
 public class InsertionSort {
     //Sorts the array using Insertion Sort.
     public void sort(Comparable[] a) {
+        if (a.length <= 1) return;
+
         for (int i = 1; i < a.length; i++) {
             insert(i, a);
         }
@@ -11,6 +15,10 @@ public class InsertionSort {
     private void insert(int i, Comparable[] a) {
         //Inserts the 'Transition element' into its correct position in the sorted portion of the array.
         //TODO: TO BE IMPLEMENTED
+        for (int j = i; j > 0 && a[j].compareTo(a[j-1]) < 0; j--) {
+            if(a[j].compareTo(a[j-1]) < 0) swap(a, j, j-1);
+            else return ;
+        }
     }
 
     private void swap(Object[] a, int i, int j) {
